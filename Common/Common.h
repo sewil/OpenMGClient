@@ -50,7 +50,7 @@ private:
 			}
 		};
 	public:
-		const char* DllName = "LEN.dll";
+		const char* DllName = "ijl15.dll";
 		const char* MapleExeName = "MapleStory.exe";
 		const char* MapleStartupArgs = " GameLaunching 127.0.0.1 8484";
 
@@ -76,7 +76,7 @@ private:
 			SleepAfterUnpackDuration = 0;
 			ForceWindowedOnStart = TRUE;
 			InjectImmediately = FALSE;
-			AllowMulticlient = TRUE;
+			AllowMulticlient = FALSE;
 		}
 	};
 

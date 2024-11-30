@@ -5,6 +5,6 @@
 */
 
 // example linking
-_ExampleFunc_cdecl_t _ExampleFunc_cdecl;
+_CClientSocket__ConnectIP_cdecl_t _CClientSocket__ConnectIP_cdecl;
 _ExampleFunc_thiscall_t _ExampleFunc_thiscall;
 // end example linking

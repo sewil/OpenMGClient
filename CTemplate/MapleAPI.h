@@ -8,8 +8,8 @@
 /// <summary>
 /// Example cdecl typedef. stdcall will use the same format.
 /// </summary>
-typedef void(__cdecl* _ExampleFunc_cdecl_t)(void* pArg1, int nArg2);
-extern _ExampleFunc_cdecl_t _ExampleFunc_cdecl;
+typedef void(__cdecl* _CClientSocket__ConnectIP_cdecl_t)(char* cp, short host);
+extern _CClientSocket__ConnectIP_cdecl_t _CClientSocket__ConnectIP_cdecl;
 
 /// <summary>
 /// Example __thiscall typedef

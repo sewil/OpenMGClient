@@ -11,15 +11,12 @@ namespace MapleHooks
 	/// <param name="pArg1">First arg</param>
 	/// <param name="nArg2">second arg</param>
 	/// <returns>Nothing</returns>
-	void __cdecl ExampleCDecl_Hook(void* pArg1, int nArg2)
+	void __cdecl CClientSocket__ConnectIP_Hook(char* cp, short host)
 	{
 		Log("Detour triggered!");
 
-		// we only want to execute this function if nArg2 is more than 420, otherwise we return without doing anything
-		if (nArg2 > 420)
-		{
-			_ExampleFunc_cdecl(pArg1, nArg2);
-		}
+        char ip[] = "127.0.0.1";
+		_CClientSocket__ConnectIP_cdecl(ip, host);
 	}
 
 	/// <summary>
