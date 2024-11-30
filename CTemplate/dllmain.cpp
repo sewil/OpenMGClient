@@ -1050,6 +1050,14 @@ VOID MainFunc()
 	PatchNop(0x00714098, 1);*/
 	#pragma endregion
 
+	#pragma region Set maple version
+	BYTE mapleVersion = Common::GetConfig()->MapleVersion;
+	WriteValue<BYTE>(0x0043F562, mapleVersion);
+	WriteValue<BYTE>(0x00440477, mapleVersion);
+	WriteValue<BYTE>(0x004404D3, mapleVersion);
+	WriteValue<USHORT>(0x0044068F, -mapleVersion);
+	#pragma endregion
+
 	/*
 	ENABLE WINDOWED MODE
 	mov     dword ptr[ebp - 0x1C], 0
