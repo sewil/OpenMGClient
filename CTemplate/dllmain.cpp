@@ -1143,8 +1143,8 @@ VOID MainFunc()
 	PatchJmp(0x00608ECE, (BYTE*)0x00608F3D);
 
 	// Inc dmg cap to 2 bil
-	char dmg_bytes[] = { 0xC0, 0xFF, 0xFF, 0xFF, 0xDF, 0x41 };
-	//WriteBytes(0x0067605A, dmg_bytes, sizeof(dmg_bytes));
+	char dmg_bytes[] = { 0x00, 0x00, 0xC0, 0xFF, 0xFF, 0xFF, 0xDF, 0x41 };
+	WriteBytes(0x00676058, dmg_bytes, sizeof(dmg_bytes));
 
 	// IV_SHIFT_KEY
 	/*char IV_SHIFT_KEY[] = {
