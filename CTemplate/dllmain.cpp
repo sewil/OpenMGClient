@@ -1055,7 +1055,7 @@ VOID MainFunc()
 	WriteValue<BYTE>(0x0043F562, mapleVersion);
 	WriteValue<BYTE>(0x00440477, mapleVersion);
 	WriteValue<BYTE>(0x004404D3, mapleVersion);
-	WriteValue<USHORT>(0x0044068F, -mapleVersion);
+	WriteValue<USHORT>(0x00440690, -mapleVersion-1);
 	#pragma endregion
 
 	/*
