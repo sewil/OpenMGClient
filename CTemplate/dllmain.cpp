@@ -1220,7 +1220,7 @@ VOID MainProc()
 	(
 		TRUE,			// true if you want to hook windows libraries (besides mutex) set this to false if you already edited your IP into the client (eg v83 localhosts)
 		MainFunc,		// function to be executed after client is unpacked
-		"127.0.0.1",	// IP to connect to (your server IP)
+		Common::GetConfig()->IP,	// IP to connect to (your server IP)
 		"66.151.108.51"	// IP to redirect from (nexon IP)
 	);
 }

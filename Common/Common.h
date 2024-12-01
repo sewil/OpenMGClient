@@ -52,6 +52,7 @@ private:
 	public:
 		const char* DllName = "ijl15.dll";
 		const char* MapleExeName = "MapleStory.exe";
+		const char* IP = "127.0.0.1";
 		const char* MapleStartupArgs = " GameLaunching 127.0.0.1 8484";
 		const BYTE MapleVersion = 22;
 
