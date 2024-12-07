@@ -23,6 +23,7 @@ VOID MainFunc()
 	Log(__FUNCTION__);
 
 	#pragma region Buncha nops
+	/*
 	PatchNop(0x00465E15, 1);
 	PatchNop(0x0046618B, 1);
 	PatchNop(0x00466224, 1);
@@ -33,12 +34,6 @@ VOID MainFunc()
 	PatchNop(0x0047C5C2, 1);
 	PatchNop(0x004828BD, 1);
 	PatchNop(0x004ED9EF, 1);
-
-	/*
-	AES REMOVED
-	PatchNop(0x004FDD41, 42);
-	*/
-
 	PatchNop(0x004FDDB2, 1);
 	PatchNop(0x004FDDC0, 1);
 	PatchNop(0x004FDE00, 1);
@@ -59,12 +54,6 @@ VOID MainFunc()
 	PatchNop(0x004FE0E9, 1);
 	PatchNop(0x004FE122, 1);
 	PatchNop(0x004FE130, 1);
-	
-	/*
-	AES REMOVED
-	PatchNop(0x004FE20E, 27);
-	*/
-
 	PatchNop(0x004FE279, 36);
 	PatchNop(0x0051306F, 1);
 	PatchNop(0x00513138, 1);
@@ -95,9 +84,6 @@ VOID MainFunc()
 	PatchNop(0x005D7ED1, 1);
 	PatchNop(0x005DBF76, 1);
 	PatchNop(0x005DBF83, 1);
-	PatchNop(0x00609C50, 5);
-	PatchNop(0x00609EEE, 5);
-	PatchNop(0x0062A81D, 5);
 	PatchNop(0x0062ACB9, 1);
 	PatchNop(0x0062ACFB, 1);
 	PatchNop(0x0062BC19, 1);
@@ -247,7 +233,7 @@ VOID MainFunc()
 	PatchNop(0x00640381, 1);
 	PatchNop(0x00640387, 1);
 	PatchNop(0x0064038D, 1);
-	PatchNop(0x00640393, 1);
+	PatchNop(0x00640393, 1);*/
 
 	// Poly
 	/*PatchNop(0x00712563, 1);
@@ -1050,6 +1036,17 @@ VOID MainFunc()
 	PatchNop(0x00714098, 1);*/
 	#pragma endregion
 
+	#pragma region Disable AES
+	/*PatchNop(0x004FDD41, 42);
+	PatchNop(0x004FE20E, 27);*/
+	#pragma endregion
+
+	#pragma region Disable GameGuard
+	PatchNop(0x00609C50, 5);
+	PatchNop(0x00609EEE, 5);
+	PatchNop(0x0062A81D, 5);
+	#pragma endregion
+
 	#pragma region Set maple version
 	BYTE mapleVersion = Common::GetConfig()->MapleVersion;
 	WriteValue<BYTE>(0x0043F562, mapleVersion);
@@ -1146,7 +1143,7 @@ VOID MainFunc()
 	char dmg_bytes[] = { 0x00, 0x00, 0xC0, 0xFF, 0xFF, 0xFF, 0xDF, 0x41 };
 	WriteBytes(0x00676058, dmg_bytes, sizeof(dmg_bytes));
 
-	// IV_SHIFT_KEY
+	#pragma region Change IV Shift Key
 	/*char IV_SHIFT_KEY[] = {
 		0xEC, 0x3F, 0x77, 0xA4, 0x45, 0xD0, 0x71, 0xBF, 0xB7, 0x98, 0x20, 0xFC, 0x4B, 0xE9, 0xB3, 0xE1,
 		0x5C, 0x22, 0xF7, 0x0C, 0x44, 0x1B, 0x81, 0xBD, 0x63, 0x8D, 0xD4, 0xC3, 0xF2, 0x10, 0x19, 0xE0,
@@ -1166,8 +1163,9 @@ VOID MainFunc()
 		0x84, 0x7F, 0x61, 0x1E, 0xCF, 0xC5, 0xD1, 0x56, 0x3D, 0xCA, 0xF4, 0x05, 0xC6, 0xE5, 0x08, 0x49
 	};
 	WriteBytes(0x006BCD68, IV_SHIFT_KEY, sizeof(IV_SHIFT_KEY));*/
+	#pragma endregion
 
-	// AES
+	#pragma region Change AES Key
 	/*char AES_USER_KEY[] = {
 		0x13, 0x52, 0x2A, 0x5B,
 		0x08, 0x02, 0x10, 0x60,
@@ -1179,6 +1177,7 @@ VOID MainFunc()
 		0x52, 0xDE, 0xC7, 0x1E,
 	};
 	WriteBytes(0x006B77D8, AES_USER_KEY, sizeof(AES_USER_KEY));*/
+	#pragma endregion
 
 	// below hooks only serve as examples -- they will not do anything as-is
 	//WriteValue<BYTE>(0x006BA6D0, 0x00);
