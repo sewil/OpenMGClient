@@ -55,6 +55,8 @@ private:
 		const char* IP = "127.0.0.1";
 		const char* MapleStartupArgs = " GameLaunching 127.0.0.1 8484";
 		const BYTE MapleVersion = 22;
+		const BYTE MapleDisplayVersion = 22;
+		const BYTE MapleLocale = 8;
 
 		const char* MapleExitWindowWebUrl = "http";
 		const char* MapleWindowClass = "MapleStoryClass";
