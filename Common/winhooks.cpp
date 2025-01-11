@@ -369,8 +369,11 @@ namespace WinHooks
 
 			if (strstr(szAddr, Common::GetInstance()->m_sOriginalIP))
 			{
-				Log("Detected and rerouting socket connection to IP: %s", Common::GetInstance()->m_sRedirectIP);
-				service->sin_addr.S_un.S_addr = inet_addr(Common::GetInstance()->m_sRedirectIP);
+				const char* rIP = Common::GetInstance()->m_sRedirectIP;
+				USHORT rPort = Common::GetConfig()->HostPort;
+				Log("Detected and rerouting socket connection: %s -> %s:%d", szAddr, rIP, rPort);
+				service->sin_addr.S_un.S_addr = inet_addr(rIP);
+				service->sin_port = htons(rPort);
 				Common::GetInstance()->m_GameSock = s;
 			}
 

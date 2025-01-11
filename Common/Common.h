@@ -57,6 +57,7 @@ private:
 		const BYTE MapleVersion = 22;
 		const BYTE MapleDisplayVersion = 22;
 		const BYTE MapleLocale = 8;
+		const USHORT HostPort = 8484;
 
 		const char* MapleExitWindowWebUrl = "http";
 		const char* MapleWindowClass = "MapleStoryClass";
